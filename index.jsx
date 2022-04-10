@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
-import { useRouter } from 'next/router'
-import { Action, createMemoryHistory } from 'history'
-import { Router } from 'react-router-dom'
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { useRouter } from "next/router";
+import { Action, createMemoryHistory } from "history";
+import { Router } from "react-router-dom";
 
 /**
  * @param {object} props
@@ -9,29 +9,29 @@ import { Router } from 'react-router-dom'
  * @return {JSX.Element}
  */
 export default function NextBridgeRouter({ children }) {
-  const router = useRouter()
-  const [history] = useState(() => createMemoryHistory())
+  const router = useRouter();
+  const [history] = useState(() => createMemoryHistory());
 
   useIsomorphicLayoutEffect(() => {
     return history.listen(({ action, location }) => {
       switch (action) {
         case Action.Push:
-          router.push(location.pathname)
-          break
+          router.push(location.pathname);
+          break;
         case Action.Replace:
-          router.replace(location.pathname)
-          break
+          router.replace(location.pathname);
+          break;
         case Action.Pop:
-          router.back()
-          break
+          router.back();
+          break;
         default:
-          console.error('Unhandled transition', action, location)
+          console.error("Unhandled transition", action, location);
       }
-    })
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
-  return <HistoryRouter history={history}>{children}</HistoryRouter>
+  return <HistoryRouter history={history}>{children}</HistoryRouter>;
 }
 
 /**
@@ -45,9 +45,9 @@ const HistoryRouter = ({ basename, children, history }) => {
   const [state, setState] = useState({
     action: history.action,
     location: history.location,
-  })
+  });
 
-  useIsomorphicLayoutEffect(() => history.listen(setState), [history])
+  useIsomorphicLayoutEffect(() => history.listen(setState), [history]);
 
   return (
     <Router
@@ -60,9 +60,8 @@ const HistoryRouter = ({ basename, children, history }) => {
     >
       {children}
     </Router>
-  )
-}
-
+  );
+};
 
 const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
