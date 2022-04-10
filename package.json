@@ -1,0 +1,41 @@
+{
+  "name": "react-router-nextjs-bridge",
+  "version": "0.1.0",
+  "description": "Bridge between react-router and next.js router",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "pnpm esbuild index.jsx --outfile=build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cawabunga/react-router-nextjs-bridge.git"
+  },
+  "keywords": [
+    "Next.js",
+    "react-router"
+  ],
+  "author": "Emil Ibatullin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cawabunga/react-router-nextjs-bridge/issues"
+  },
+  "homepage": "https://github.com/cawabunga/react-router-nextjs-bridge#readme",
+  "dependencies": {
+    "history": "^5.3.0"
+  },
+  "peerDependencies": {
+    "next": "^12.1.4",
+    "react": "^17.0.2",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.1",
+    "esbuild": "^0.14.34",
+    "next": "^12.1.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.3.0",
+    "typescript": "^4.6.3"
+  }
+}
