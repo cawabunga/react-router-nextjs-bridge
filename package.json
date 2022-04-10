@@ -4,8 +4,8 @@
   "description": "Bridge between react-router and next.js router",
   "main": "build/index.js",
   "scripts": {
-    "build": "pnpm esbuild index.jsx --outfile=build/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild index.jsx --outfile=build/index.js",
+    "test": "playwright test"
   },
   "repository": {
     "type": "git",
